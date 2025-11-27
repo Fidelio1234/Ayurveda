@@ -1,0 +1,445 @@
+/* ===== CONTAINER PRINCIPALE ===== */
+.giorno-calendario {
+  position: relative;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-height: 180px; /* Aumentato da 140px a 180px */
+  height: 180px; /* Altezza fissa */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.giorno-calendario:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+}
+
+/* ===== HEADER DEL GIORNO ===== */
+.giorno-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  min-height: 32px;
+}
+
+.giorno-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.giorno-numero {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.giorno-nome {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== CONTROLLI GIORNO (Badge + Pulsanti) ===== */
+.giorno-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.giorno-badge {
+  background: #ef4444;
+  color: white;
+  border-radius: 8px;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Badge per giorni con tutte prenotazioni evase */
+.giorno-prenotato:has(.prenotazione-item:not(.prenotazione-chiusa)) .giorno-badge {
+  background: #ef4444;
+}
+
+.giorno-prenotato:not(:has(.prenotazione-item:not(.prenotazione-chiusa))) .giorno-badge {
+  background: #10b981;
+}
+
+/* ===== PULSANTI AZIONE COMPATTI ===== */
+.btn-aggiungi-piccolo {
+  background: #93aeed;
+  color: rgb(249, 243, 243);
+  border: none;
+  border-radius: 5%;
+  width: 100px;
+  height: 27px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-aggiungi-piccolo:hover {
+  background: #059669;
+  transform: scale(1.1);
+}
+
+.btn-altre-prenotazioni {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-top: 4px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-altre-prenotazioni:hover {
+  background: #e5e7eb;
+  color: #374151;
+  border-color: #9ca3af;
+}
+
+/* ===== STILI PER GIORNI SPECIALI ===== */
+.giorno-domenica {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.giorno-domenica .giorno-numero {
+  color: #dc2626;
+}
+
+.giorno-domenica .giorno-nome {
+  color: #dc2626;
+}
+
+.giorno-oggi .giorno-numero {
+  color: #2563eb;
+}
+
+.giorno-oggi .giorno-nome {
+  color: #2563eb;
+}
+
+.giorno-altro-mese .giorno-numero {
+  color: #9ca3af;
+}
+
+.giorno-altro-mese .giorno-nome {
+  color: #9ca3af;
+}
+
+/* ===== LISTA PRENOTAZIONI COMPATTE ===== */
+.giorno-prenotazioni {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow-y: auto; /* Aggiunto scroll verticale se necessario */
+  max-height: 120px; /* Altezza massima per le prenotazioni */
+}
+
+.prenotazione-item {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 3px solid;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  flex-shrink: 0; /* Evita che si comprimano */
+}
+
+.prenotazione-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prenotazione-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.prenotazione-ora {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.125rem;
+}
+
+.prenotazione-cliente {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prenotazione-servizio {
+  font-size: 0.7rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== STATI PRENOTAZIONI ===== */
+.prenotazione-chiusa {
+  opacity: 0.7;
+}
+
+.chiusa-badge {
+  background: #10b981;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 8px;
+  margin-left: 4px;
+}
+
+.btn-evadi {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.btn-evadi:hover {
+  background: #059669;
+  transform: scale(1.1);
+}
+
+/* ===== MENU CONTESTUALE ===== */
+.giorno-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.menu-item {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #475569;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.menu-item:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.menu-item-danger:hover {
+  background: #ef4444;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+/* ===== MODAL VISUALIZZA (se ancora usato) ===== */
+.gc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.gc-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.gc-modal-header {
+  background: #4f46e5;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gc-modal-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.gc-modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gc-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .giorno-calendario {
+    min-height: 160px; /* Ridotto proporzionalmente per mobile */
+    height: 160px;
+    padding: 0.25rem;
+  }
+  
+  .giorno-prenotazioni {
+    max-height: 100px; /* Ridotto per mobile */
+  }
+  
+  .giorno-numero {
+    font-size: 1rem;
+  }
+  
+  .giorno-controls {
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .btn-aggiungi-piccolo {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+  }
+  
+  .btn-altre-prenotazioni {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+  
+  .prenotazione-item {
+    padding: 0.25rem;
+  }
+  
+  .giorno-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+  }
+
+  .gc-modal {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .gc-modal-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== STATI PRENOTAZIONI EVASE ===== */
+.prenotazione-chiusa{
+  opacity: 0.9;
+  border-left-width: 4px !important;
+}
+
+.prenotazione-chiusa .prenotazione-cliente {
+  font-weight: 600;
+  color: #065f46 !important;
+}
+
+.prenotazione-chiusa .prenotazione-servizio {
+  color: #047857 !important;
+}
+
+.prenotazione-chiusa .prenotazione-ora {
+  color: #059669 !important;
+  font-weight: 600;
+}
+
+.chiusa-indicator {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.chiusa-badge {
+  background: #10b981;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+/* Badge giorno quando tutte le prenotazioni sono evase */
+.badge-tutte-evase {
+  background: #10b981 !important;
+}
+
+/* Colori per le prenotazioni evase */
+.prenotazione-item[style*="background-color: #f0fdf4"] {
+  border: 1px solid #a7f3d0;
+}
+
+.prenotazione-item[style*="background-color: #f0fdf4"]:hover {
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+  transform: translateX(2px);
+}

@@ -5,59 +5,65 @@ export function Layout({ children }) {
   
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
-      <nav style={{ 
-        backgroundColor: 'white', 
-        padding: '1rem 2rem',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        marginBottom: '2rem'
-      }}>
-        <h1 style={{ margin: 0, color: '#333' }}>Gestione Clienti</h1>
-        <div style={{ marginTop: '1rem' }}>
-          <Link 
-            to="/" 
-            style={{ 
-              marginRight: '1rem', 
-              textDecoration: 'none',
-              color: location.pathname === '/' ? '#007bff' : '#333'
-            }}
-          >
-            📊 Dashboard
-          </Link>
-          <Link 
-            to="/clienti" 
-            style={{ 
-              marginRight: '1rem', 
-              textDecoration: 'none',
-              color: location.pathname === '/clienti' ? '#007bff' : '#333'
-            }}
-          >
-            👥 Clienti
-          </Link>
-          <Link 
-            to="/nuovo-cliente" 
-            style={{ 
-              textDecoration: 'none',
-              color: location.pathname === '/nuovo-cliente' ? '#007bff' : '#333'
-            }}
-          >
-            ➕ Nuovo Cliente
-          </Link>
+  <nav style={{ 
+    backgroundColor: 'white', 
+    padding: '1rem 2rem',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    marginBottom: '2rem'
+  }}>
+    <h1 style={{ margin: 0, color: '#333' }}>Gestione Clienti</h1>
+    <div style={{ marginTop: '1rem' }}>
+      
+      {/* Link Calendario */}
+      <Link 
+        to="/calendario" 
+        style={{ 
+          marginRight: '1rem', 
+          textDecoration: 'none',
+          color: location.pathname === '/calendario' ? '#007bff' : '#333'
+        }}
+      >
+        <span style={{padding: '0 10px'}}>📅 Calendario</span>
+      </Link>
 
-           <Link 
-            to="/pagamenti" 
-            style={{ 
-              textDecoration: 'none',
-              color: location.pathname === '/nuovo-cliente' ? '#007bff' : '#333'
-            }}
-          >
-            💳 Pagamenti
-          </Link>
+      {/* Link Clienti */}
+      <Link 
+        to="/clienti" 
+        style={{ 
+          marginRight: '1rem', 
+          textDecoration: 'none',
+          color: location.pathname === '/clienti' ? '#007bff' : '#333'
+        }}
+      >
+        <span style={{padding: '0 10px'}}>👥 Clienti</span>
+      </Link>
 
+      {/* Link Servizi */}
+      <Link 
+        to="/servizi" 
+        style={{ 
+          marginRight: '1rem', 
+          textDecoration: 'none',
+          color: location.pathname === '/servizi' ? '#007bff' : '#333'
+        }}
+      >
+        <span style={{padding: '0 10px'}}>🛠️ Servizi</span>
+      </Link>
 
-        </div>
+      {/*
+      <Link 
+        to="/pagamenti" 
+        style={{ 
+          textDecoration: 'none',
+          color: location.pathname === '/nuovo-cliente' ? '#007bff' : '#333'
+        }}
+      >
+        💳 Pagamenti
+      </Link>
+      */}
 
-          
-      </nav>
+    </div>
+  </nav>
   
       <main style={{ padding: '0 2rem' }}>
         {children}
