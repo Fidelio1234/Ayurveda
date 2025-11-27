@@ -297,7 +297,7 @@ export function GiornoCalendario({
               }}
               title="Aggiungi prenotazione"
             >
-              + Prenotazione
+              Aggiungi Prenotazione
             </button>
           )}
         </div>

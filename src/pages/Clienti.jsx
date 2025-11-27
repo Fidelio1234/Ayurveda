@@ -58,7 +58,7 @@ export function Clienti() {
   // Funzione per caricare lo storico prenotazioni
   const caricaStoricoCliente = async (clienteId) => {
     try {
-      setLoadingStorico(true)
+      setLoadingStorico(false)
       const { data, error } = await supabase
         .from('prenotazioni')
         .select(`

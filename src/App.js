@@ -45,9 +45,9 @@ export default App;
 import { Routes, Route } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
 import { Layout } from './components/Layout';
-//import { Dashboard } from './pages/Dashboard';
+
 import { Clienti } from './pages/Clienti';
-//import { NuovoCliente } from './pages/NuovoCliente';
+
 import { Pagamenti } from './pages/Pagamenti';
 import stripePromise from './stripe/config';
 import { Servizi } from './pages/Servizi/Servizi';

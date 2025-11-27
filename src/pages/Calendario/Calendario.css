@@ -1,13 +1,14 @@
 .calendario-page {
-  padding: 0.5rem;
+  padding: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f2f2f5 0%, #764ba2 100%);
   width: 100%;
+  margin: 0;
 }
 
 .calendario-container {
   background: white;
-  border-radius: 16px;
+  border-radius: 0px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   min-height: 90vh;
@@ -18,7 +19,7 @@
 }
 
 .calendario-header {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #cf17b0 0%, #de99dc 100%);
   color: white;
   padding: 2rem;
   text-align: center;
@@ -67,7 +68,24 @@
   transition: all 0.3s ease;
   background: white;
   color: #4f46e5;
+  box-shadow: 0 2px 8px rgba(216, 70, 229, 0.1);
+  color: #141313;
+}
+.calendario-btn1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgb(241, 8, 8);
+  color: #4f46e5;
   box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+  color: #0f0e0e;
 }
 
 .calendario-btn:hover {
@@ -76,7 +94,7 @@
 }
 
 .calendario-btn-primary {
-  background: #4f46e5;
+  background: #d334cb;
   color: white;
 }
 

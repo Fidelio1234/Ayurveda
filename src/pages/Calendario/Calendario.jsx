@@ -3,6 +3,7 @@ import { supabase } from '../../supabase/client';
 import { Modal } from '../../components/Modal/Modal';
 import { PrenotazioneForm } from '../../components/PrenotazioneForm/PrenotazioneForm';
 import { GiornoCalendario } from '../../components/GiornoCalendario/GiornoCalendario';
+import { LogoutModal } from './LogoutModal';
 import './Calendario.css';
 
 export function Calendario() {
@@ -16,6 +17,7 @@ export function Calendario() {
   const [prenotazioneSelezionata, setPrenotazioneSelezionata] = useState(null);
   const [confermaEliminazioneAperta, setConfermaEliminazioneAperta] = useState(false);
   const [prenotazioneDaEliminare, setPrenotazioneDaEliminare] = useState(null);
+    const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const mesi = [
     'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
@@ -24,8 +26,22 @@ export function Calendario() {
 
   const giorniTotaliGriglia = 42;
 
+
+const handleLogout = () => {
+    // Cancella tutti i dati di sessione
+    localStorage.clear();
+    sessionStorage.clear();
+    // Ricarica la pagina
+    window.location.href = '/';
+  };
+
+
+
+
+
+
   const caricaDati = useCallback(async () => {
-    setLoading(true);
+    setLoading(false);
     try {
       const inizioMese = new Date(dataCorrente.getFullYear(), dataCorrente.getMonth(), 1);
       const fineMese = new Date(dataCorrente.getFullYear(), dataCorrente.getMonth() + 1, 0);
@@ -420,7 +436,50 @@ const getPrenotazioniGiorno = (giorno) => {
             <button onClick={meseSuccessivo} className="calendario-btn">
               Mese Succ. ▶
             </button>
+    <button 
+            className="calendario-btn1 calendario-btn1-logout"
+            onClick={() => setLogoutModalOpen(true)}
+          >
+            🔓 Logout
+          </button>
+
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
           <div className="calendario-mese-anno">
             {mesi[dataCorrente.getMonth()]} {dataCorrente.getFullYear()}
@@ -483,6 +542,14 @@ const getPrenotazioniGiorno = (giorno) => {
            onEvadi={handleEvadiPrenotazione}
         />
       </Modal>
+
+<LogoutModal
+        isOpen={logoutModalOpen}
+        onClose={() => setLogoutModalOpen(false)}
+        onLogout={handleLogout}
+      />
+
+
 
       {confermaEliminazioneAperta && (
         <div className="conferma-overlay">

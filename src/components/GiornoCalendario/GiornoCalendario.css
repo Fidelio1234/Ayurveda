@@ -70,6 +70,7 @@
 /* Badge per giorni con tutte prenotazioni evase */
 .giorno-prenotato:has(.prenotazione-item:not(.prenotazione-chiusa)) .giorno-badge {
   background: #ef4444;
+  
 }
 
 .giorno-prenotato:not(:has(.prenotazione-item:not(.prenotazione-chiusa))) .giorno-badge {
@@ -78,11 +79,11 @@
 
 /* ===== PULSANTI AZIONE COMPATTI ===== */
 .btn-aggiungi-piccolo {
-  background: #93aeed;
+  background: #ea82db;
   color: rgb(249, 243, 243);
   border: none;
   border-radius: 5%;
-  width: 100px;
+  width: 110px;
   height: 27px;
   font-size: 12px;
   font-weight: bold;
@@ -94,8 +95,8 @@
 }
 
 .btn-aggiungi-piccolo:hover {
-  background: #059669;
-  transform: scale(1.1);
+  background: #56bce4;
+  transform: scale(1);
 }
 
 .btn-altre-prenotazioni {

@@ -6,7 +6,7 @@ import './Servizi.css';
 
 export function Servizi() {
   const [servizi, setServizi] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //const [loading, setLoading] = useState(true);
   const [modalAperto, setModalAperto] = useState(null);
   const [servizioSelezionato, setServizioSelezionato] = useState(null);
   const [azioneInCorso, setAzioneInCorso] = useState(false);
@@ -37,7 +37,7 @@ export function Servizi() {
       console.error('Errore:', error);
       setMessaggio('❌ Errore nel caricamento servizi');
     } finally {
-      setLoading(false);
+      //setLoading(false);
     }
   };
 
@@ -213,14 +213,7 @@ const handleToggleStato = async (servizio) => {
   // Estrai categorie uniche per i filtri
   const categorie = ['tutte', ...new Set(servizi.map(s => s.categoria).filter(Boolean))];
 
-  if (loading) {
-    return (
-      <div className="servizi-loading">
-        <div className="spinner"></div>
-        <p>Caricamento servizi...</p>
-      </div>
-    );
-  }
+
 
   return (
     <div className="servizi-page">
@@ -385,7 +378,7 @@ const handleToggleStato = async (servizio) => {
             servizio={servizioSelezionato}
             onSubmit={modalAperto === 'crea' ? handleCreaServizio : handleModificaServizio}
             onCancel={chiudiModal}
-            loading={azioneInCorso}
+            //loading={azioneInCorso}
           />
         )}
       </Modal>
