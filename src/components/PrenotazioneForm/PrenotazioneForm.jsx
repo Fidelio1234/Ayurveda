@@ -583,24 +583,39 @@ export function PrenotazioneForm({
     }
   };
 
-  const verificaDisponibilita = () => {
-    if (!formData.ora_inizio || !formData.ora_fine) return true;
+ // Sostituisci la funzione verificaDisponibilita con questa:
 
-    const nuovaPrenotazioneInizio = new Date(`2000-01-01T${formData.ora_inizio}`);
-    const nuovaPrenotazioneFine = new Date(`2000-01-01T${formData.ora_fine}`);
+const verificaDisponibilita = () => {
+  if (!formData.ora_inizio || !formData.ora_fine) return true;
 
-    for (const fascia of fasceOccupate) {
-      const fasciaInizio = new Date(`2000-01-01T${fascia.inizio}`);
-      const fasciaFine = new Date(`2000-01-01T${fascia.fine}`);
+  const nuovaPrenotazioneInizio = formData.ora_inizio.substring(0, 5);
+  const nuovaPrenotazioneFine = formData.ora_fine.substring(0, 5);
 
-      if (nuovaPrenotazioneInizio < fasciaFine && nuovaPrenotazioneFine > fasciaInizio) {
-        return false;
-      }
+  // Considera solo prenotazioni NON EVASE dello stesso giorno
+  const prenotazioniGiorno = prenotazioniEsistenti.filter(p => 
+    p.data_prenotazione === formData.data_prenotazione && 
+    !p.evasa &&
+    p.id !== prenotazione?.id // Escludi la prenotazione corrente in modifica
+  );
+
+  for (const prenotazioneEsistente of prenotazioniGiorno) {
+    const esistenteInizio = prenotazioneEsistente.ora_inizio.substring(0, 5);
+    const esistenteFine = prenotazioneEsistente.ora_fine.substring(0, 5);
+
+    console.log('🔍 Controllo sovrapposizione:', {
+      nuova: `${nuovaPrenotazioneInizio}-${nuovaPrenotazioneFine}`,
+      esistente: `${esistenteInizio}-${esistenteFine}`,
+      sovrapposizione: (nuovaPrenotazioneInizio < esistenteFine && nuovaPrenotazioneFine > esistenteInizio)
+    });
+
+    // Controlla se c'è sovrapposizione
+    if (nuovaPrenotazioneInizio < esistenteFine && nuovaPrenotazioneFine > esistenteInizio) {
+      return false; // Trovata sovrapposizione
     }
+  }
 
-    return true;
-  };
-
+  return true; // Nessuna sovrapposizione
+};
   const handleSubmit = (e) => {
     e.preventDefault();
     if (prenotazioneChiusa) return; // Blocca invio se chiusa

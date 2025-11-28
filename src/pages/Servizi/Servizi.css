@@ -41,12 +41,12 @@
 }
 
 .servizi-btn-primary {
-  background: var(--primary-color);
-  color: white;
+   background: rgb(229, 146, 204);
+  color: rgb(18, 18, 18);
 }
 
 .servizi-btn-primary:hover {
-  background: var(--primary-hover);
+  background: rgb(237, 230, 9);
   transform: translateY(-1px);
 }
 
@@ -226,7 +226,7 @@
 }
 
 .servizio-btn-edit {
-  background: #2a92d2;
+  background: #d22aab;
   color: rgb(239, 242, 245);
 }
 

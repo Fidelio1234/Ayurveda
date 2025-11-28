@@ -236,7 +236,7 @@ export function Clienti() {
             <span className="stat-label">Clienti Totali</span>
           </div>
           <button 
-            className="btn btn-primary btn-add"
+            className="btn-nuovo"
             onClick={apriCreaCliente}
           >
             ➕ Nuovo Cliente
@@ -431,7 +431,7 @@ export function Clienti() {
         <div className="storico-overlay">
           <div className="storico-modal">
             <div className="storico-header">
-              <h2>📊 Storico Prenotazioni</h2>
+              <h2>📊 Prenotazioni</h2>
               <h3>{clienteSelezionato.nome}</h3>
               <button 
                 className="storico-close"

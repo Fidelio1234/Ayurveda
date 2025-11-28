@@ -303,9 +303,19 @@
   gap: 0.5rem;
 }
 
-.btn-primary {
-  background: #3b82f6;
-  color: white;
+.btn-nuovo {
+  background: #e4b5e5;
+  color: rgb(21, 20, 20);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-primary:hover {
@@ -570,7 +580,7 @@
 }
 
 .btn-prenotazioni {
-  background: #4f46e5;
+  background: #e546d0;
   color: white;
   border: none;
   padding: 6px 12px;

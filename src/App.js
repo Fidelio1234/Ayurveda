@@ -47,7 +47,6 @@ import { Elements } from '@stripe/react-stripe-js';
 import { Layout } from './components/Layout';
 
 import { Clienti } from './pages/Clienti';
-
 import { Pagamenti } from './pages/Pagamenti';
 import stripePromise from './stripe/config';
 import { Servizi } from './pages/Servizi/Servizi';
@@ -56,13 +55,12 @@ import { Calendario } from './pages/Calendario/Calendario';
 function App() {
   return (
     <Elements stripe={stripePromise}>
-      {/* Rimuovi BrowserRouter da qui */}
       <Layout>
         <Routes>
-          
+          {/* Route per la root che mostra direttamente il calendario */}
+          <Route path="/" element={<Calendario />} />
           <Route path="/calendario" element={<Calendario />} />
           <Route path="/clienti" element={<Clienti />} />
-         
           <Route path="/pagamenti" element={<Pagamenti />} />
           <Route path="/servizi" element={<Servizi />} />
         </Routes>
