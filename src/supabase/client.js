@@ -1,16 +1,13 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Usa le variabili d'ambiente o valori di sviluppo
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || 'https://dummy.supabase.co'
-const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.dummy-key'
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL
+const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY
 
-console.log('🔗 Supabase Config (modalità sviluppo):')
+// Debug
+console.log('🔗 Supabase Config:');
+console.log('URL:', supabaseUrl);
+console.log('KEY:', supabaseKey ? 'Presente' : 'Mancante');
 
-// Forza la creazione del client anche con valori dummy
-export const supabase = createClient(supabaseUrl, supabaseKey, {
-  auth: {
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: true
-  }
-})
+export const supabase = createClient(supabaseUrl, supabaseKey)
+
+
