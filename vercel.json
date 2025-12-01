@@ -1,29 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/build/$1"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "devCommand": "npm run start",
+  "installCommand": "npm install",
+  "framework": "create-react-app",
+  "outputDirectory": "build",
   "env": {
-    "NODE_ENV": "production"
+    "REACT_APP_SUPABASE_URL": "https://meefweeocvppwsivyohx.supabase.co",
+    "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lZWZ3ZWVvY3ZwcHdzaXZ5b2h4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0ODA5MzEsImV4cCI6MjA3OTA1NjkzMX0.O0RE_yNMhWufkD19eswVRARzV8jAPpLs6ndsm_60ppo"
   }
 }
