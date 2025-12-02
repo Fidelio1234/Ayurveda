@@ -148,21 +148,15 @@
 
 /* ===== STILI PER IL GIORNO NEL CONTESTO DEL CALENDARIO ===== */
 .calendario-giorni .giorno-calendario {
-  /* RIMUOVI TUTTE QUESTE PROPRIETÀ: */
-  /* padding: 102px 30px; */ /* Questo era il problema! */
-  /* min-height: 140px; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  
-  /* LASCIA SOLO QUESTO: */
+
   background: white;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
   
-  /* AGGIUNGI QUESTO: */
-  height: 100%; /* Occupa tutta l'altezza della cella della griglia */
-  width: 100%; /* Occupa tutta la larghezza della cella della griglia */
+
+  height: 100%; 
+  width: 115%; 
   box-sizing: border-box;
   padding: 0.5rem; /* Padding normale */
 }
