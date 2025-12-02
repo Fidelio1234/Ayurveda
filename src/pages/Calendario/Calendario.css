@@ -1,3 +1,4 @@
+/* ===== CONTAINER PRINCIPALE ===== */
 .calendario-page {
   padding: 0;
   min-height: 100vh;
@@ -14,10 +15,11 @@
   min-height: 90vh;
   display: flex;
   flex-direction: column;
-   width: 100%;
+  width: 100%;
   margin: 0;
 }
 
+/* ===== HEADER ===== */
 .calendario-header {
   background: linear-gradient(135deg, #cf17b0 0%, #de99dc 100%);
   color: white;
@@ -38,6 +40,7 @@
   margin: 0;
 }
 
+/* ===== CONTROLLI ===== */
 .calendario-controls {
   display: flex;
   justify-content: space-between;
@@ -67,10 +70,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background: white;
-  color: #4f46e5;
   box-shadow: 0 2px 8px rgba(216, 70, 229, 0.1);
   color: #141313;
 }
+
 .calendario-btn1 {
   display: flex;
   align-items: center;
@@ -83,7 +86,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background: rgb(241, 8, 8);
-  color: #4f46e5;
   box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
   color: #0f0e0e;
 }
@@ -130,288 +132,93 @@
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
-/* RIMUOVI QUESTE SEZIONI PERCHÉ NON SERVE PIÙ LA GRIGLIA DEI GIORNI DELLA SETTIMANA */
-/*
-.calendario-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
-  background: #e2e8f0;
-  border: 1px solid #e2e8f0;
-}
-
-.calendario-giorni-settimana {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  background: #f1f5f9;
-  border-bottom: 2px solid #e2e8f0;
-}
-
-.giorno-settimana {
-  padding: 1rem;
-  text-align: center;
-  font-weight: 700;
-  color: #475569;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-*/
-
-/* MODIFICA QUESTA SEZIONE PER IL CALENDARIO PRINCIPALE */
+/* ===== GRIGLIA GIORNI (CORREZIONE PRINCIPALE) ===== */
 .calendario-giorni {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
+  gap: 0; /* Cambiato da 1px a 0 */
   background: #e2e8f0;
   border: 1px solid #e2e8f0;
   flex: 1;
   min-height: 600px;
+  
+  /* IMPORTANTE: Forza ogni cella ad avere dimensioni uguali */
+  grid-auto-rows: 1fr; /* Questo è il FIX principale */
 }
 
-/* Stili per i giorni del calendario */
-.giorno-calendario {
+/* ===== STILI PER IL GIORNO NEL CONTESTO DEL CALENDARIO ===== */
+.calendario-giorni .giorno-calendario {
+  /* RIMUOVI TUTTE QUESTE PROPRIETÀ: */
+  /* padding: 102px 30px; */ /* Questo era il problema! */
+  /* min-height: 140px; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  
+  /* LASCIA SOLO QUESTO: */
   background: white;
-  padding: 12px 8px;
-  min-height: 140px;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
   position: relative;
+  
+  /* AGGIUNGI QUESTO: */
+  height: 100%; /* Occupa tutta l'altezza della cella della griglia */
+  width: 100%; /* Occupa tutta la larghezza della cella della griglia */
+  box-sizing: border-box;
+  padding: 0.5rem; /* Padding normale */
 }
 
-.giorno-calendario:hover {
+.calendario-giorni .giorno-calendario:hover {
   background: #f8fafc;
   transform: scale(1.02);
   z-index: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Header del giorno */
-.giorno-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 8px;
-  min-height: 32px;
-}
-
-.giorno-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
-
-.giorno-numero {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  line-height: 1;
-}
-
-.giorno-nome {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Stile per le domeniche */
-.giorno-domenica {
+/* ===== STILI SPECIFICI PER GIORNI ===== */
+.calendario-giorni .giorno-domenica {
   background-color: #fef2f2 !important;
 }
 
-.giorno-domenica .giorno-numero {
+.calendario-giorni .giorno-domenica .giorno-numero {
   color: #dc2626 !important;
 }
 
-.giorno-domenica .giorno-nome {
+.calendario-giorni .giorno-domenica .giorno-nome {
   color: #dc2626 !important;
   font-weight: 600;
 }
 
-.giorno-domenica:hover {
+.calendario-giorni .giorno-domenica:hover {
   background-color: #fecaca !important;
 }
 
-/* Stile per oggi */
-.giorno-oggi {
+.calendario-giorni .giorno-oggi {
   background: #eff6ff !important;
   border: 2px solid #3b82f6;
 }
 
-.giorno-oggi .giorno-numero {
+.calendario-giorni .giorno-oggi .giorno-numero {
   color: #2563eb;
 }
 
-.giorno-oggi .giorno-nome {
+.calendario-giorni .giorno-oggi .giorno-nome {
   color: #2563eb;
   font-weight: 600;
 }
 
-/* Stile per giorni di altri mesi */
-.giorno-altro-mese {
+.calendario-giorni .giorno-altro-mese {
   background: #f9fafb !important;
 }
 
-.giorno-altro-mese .giorno-numero {
+.calendario-giorni .giorno-altro-mese .giorno-numero {
   color: #9ca3af !important;
 }
 
-.giorno-altro-mese .giorno-nome {
+.calendario-giorni .giorno-altro-mese .giorno-nome {
   color: #9ca3af !important;
 }
 
-/* Stile per giorni con prenotazioni */
-.giorno-prenotato {
-  background: #f0f9ff !important;
-}
-
-/* Badge prenotazioni */
-.giorno-badge {
-  background: #ef4444;
-  color: white;
-  border-radius: 8px;
-  padding: 2px 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  min-width: 18px;
-  text-align: center;
-}
-
-/* Area prenotazioni */
-.giorno-prenotazioni {
-  flex: 1;
-  overflow-y: auto;
-  max-height: 100px;
-}
-
-.prenotazione-item {
-  background: white;
-  border-left: 3px solid;
-  border-radius: 6px;
-  padding: 6px 8px;
-  margin-bottom: 4px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.prenotazione-item:hover {
-  transform: translateX(2px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.prenotazione-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2px;
-}
-
-.prenotazione-ora {
-  font-weight: 600;
-  color: #374151;
-  font-size: 0.7rem;
-}
-
-.elimina-prenotazione-btn {
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  font-size: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-
-.prenotazione-item:hover .elimina-prenotazione-btn {
-  opacity: 1;
-}
-
-.elimina-prenotazione-btn:hover {
-  background: #dc2626;
-  transform: scale(1.1);
-}
-
-.prenotazione-cliente {
-  font-weight: 500;
-  color: #1f2937;
-  margin-bottom: 1px;
-}
-
-.prenotazione-servizio {
-  color: #6b7280;
-  font-size: 0.65rem;
-}
-
-.prenotazione-altre {
-  background: #f3f4f6;
-  color: #6b7280;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  text-align: center;
-  font-style: italic;
-}
-
-/* Menu contestuale */
-.giorno-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  z-index: 10;
-  overflow: hidden;
-}
-
-.menu-item {
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  background: white;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 0.875rem;
-}
-
-.menu-item:hover {
-  background: #f3f4f6;
-}
-
-.menu-item-danger {
-  color: #dc2626;
-}
-
-.menu-item-danger:hover {
-  background: #fef2f2;
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-}
-
+/* ===== LOADING & EMPTY STATES ===== */
 .calendario-loading {
   display: flex;
   flex-direction: column;
@@ -450,7 +257,7 @@
   color: #475569;
 }
 
-/* Dialog di conferma */
+/* ===== DIALOG CONFERMA ===== */
 .conferma-overlay {
   position: fixed;
   top: 0;
@@ -520,7 +327,7 @@
   background-color: #4b5563;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .calendario-controls {
     flex-direction: column;
@@ -548,9 +355,17 @@
   .calendario-giorni {
     grid-template-columns: repeat(1, 1fr);
   }
-  
-  .giorno-calendario {
-    min-height: 120px;
+}
+
+@media (max-height: 800px) {
+  .calendario-giorni {
+    min-height: 500px;
+  }
+}
+
+@media (max-height: 600px) {
+  .calendario-giorni {
+    min-height: 400px;
   }
 }
 
