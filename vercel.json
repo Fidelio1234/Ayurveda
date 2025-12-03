@@ -1,8 +1,14 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://maintenance-template.vercel.app/",
+      "permanent": false
+    }
+  ],
   "buildCommand": "npm run build",
   "devCommand": "npm run start",
   "installCommand": "npm install",
   "framework": "create-react-app",
   "outputDirectory": "build"
-
 }
