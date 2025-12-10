@@ -1,16 +1,19 @@
 /* ===== CONTAINER PRINCIPALE ===== */
 .giorno-calendario {
+
   position: relative;
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 0.5rem;
-  min-height: 180px; /* Aumentato da 140px a 180px */
-  height: 180px; /* Altezza fissa */
+  padding: 0.2rem;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease;
+  
 }
+
+
 
 .giorno-calendario:hover {
   border-color: #4f46e5;
@@ -58,25 +61,33 @@
 .giorno-badge {
   background: #ef4444;
   color: white;
-  border-radius: 8px;
-  padding: 2px 6px;
-  font-size: 0.7rem;
+  border-radius: 22px;
+  padding: 8px 9px;
+  font-size: 0.8rem;
   font-weight: 600;
   min-width: 18px;
   text-align: center;
   line-height: 1;
-}
-
-/* Badge per giorni con tutte prenotazioni evase */
-.giorno-prenotato:has(.prenotazione-item:not(.prenotazione-chiusa)) .giorno-badge {
-  background: #ef4444;
   
 }
 
-.giorno-prenotato:not(:has(.prenotazione-item:not(.prenotazione-chiusa))) .giorno-badge {
-  background: #10b981;
+/* Nel tuo GiornoCalendario.css */
+
+/* Badge di default (rosso) */
+.giorno-prenotato .giorno-badge {
+  background: #ef4444;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 0.81rem;
+  font-weight: 600;
 }
 
+/* Sovrascrivi con verde quando tutte evase */
+.giorno-prenotato .giorno-badge.badge-tutte-evase {
+  background: #c3239d;
+  color: rgb(244, 238, 243);
+}
 /* ===== PULSANTI AZIONE COMPATTI ===== */
 .btn-aggiungi-piccolo {
   background: #ea82db;
@@ -156,17 +167,20 @@
   flex-direction: column;
   gap: 0.25rem;
   overflow-y: auto; /* Aggiunto scroll verticale se necessario */
-  max-height: 120px; /* Altezza massima per le prenotazioni */
+  max-height: 250px; /* Altezza massima per le prenotazioni */
+
+  
 }
 
 .prenotazione-item {
-  padding: 0.5rem;
+  padding: 1.50rem; /* AUMENTA LO ZOOM DEL GIORNO*/
   border-radius: 6px;
   border-left: 3px solid;
   cursor: pointer;
   transition: all 0.2s ease;
   background: white;
   flex-shrink: 0; /* Evita che si comprimano */
+ 
 }
 
 .prenotazione-item:hover {
@@ -443,4 +457,31 @@
 .prenotazione-item[style*="background-color: #f0fdf4"]:hover {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
   transform: translateX(2px);
+}
+
+
+
+
+/* Stili per layout compatto */
+.prenotazione-item-compact {
+  transition: all 0.2s ease;
+}
+
+.prenotazione-item-compact:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.giorno-prenotazioni {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+/* Scroll se necessario (opzionale) */
+.giorno-prenotazioni.scrollable {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
 }

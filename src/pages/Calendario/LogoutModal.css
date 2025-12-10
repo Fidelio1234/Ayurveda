@@ -1,4 +1,4 @@
-.logout-modal-overlay {
+/*.logout-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -181,5 +181,322 @@
   
   .btn {
     min-width: 100%;
+  }
+}
+
+
+*/
+
+
+
+
+
+
+
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+.logout-modal {
+  background: #1a1a1a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 440px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: slideUp 0.4s ease;
+  border: 1px solid #333;
+}
+
+.logout-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+
+.header-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.logout-modal-header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.logout-modal-content {
+  padding: 30px;
+}
+
+.logout-instruction {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+.code-inputs-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.code-input {
+  width: 55px;
+  height: 70px;
+  border: 2px solid #444;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #a3b4ff;
+  background-color: #2a2a2a;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 4px;
+}
+
+.code-input::placeholder {
+  color: #555;
+  opacity: 0.7;
+}
+
+.code-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  transform: translateY(-3px);
+  background-color: #333;
+}
+
+.code-input.filled {
+  border-color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.code-input.disabled {
+  background-color: #333;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border-color: #555;
+}
+
+/* Dots indicator */
+.dots-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #444;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #667eea;
+  transform: scale(1.2);
+}
+
+.dot.next {
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+  background-color: #333;
+}
+
+/* Progress indicator */
+.progress-indicator {
+  margin-bottom: 25px;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #333;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.95em;
+  color: #aaa;
+  font-weight: 500;
+}
+
+/* Error message */
+.logout-error {
+  background-color: rgba(204, 51, 51, 0.1);
+  color: #ff6b6b;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ff6b6b;
+  text-align: center;
+  font-weight: 500;
+  animation: shake 0.5s ease;
+}
+
+/* Auto logout message */
+.auto-logout-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  color: #a3b4ff;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Success state */
+.logout-success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.success-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: scaleIn 0.5s ease;
+}
+
+.logout-success h4 {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.logout-success p {
+  color: #aaa;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.success-spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(102, 126, 234, 0.3);
+  border-top-color: #667eea;
+  margin: 0 auto;
+}
+
+/* Hint section */
+.logout-hint {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #aaa;
+  font-size: 0.95em;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.logout-hint p {
+  margin: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .logout-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .code-input {
+    width: 48px;
+    height: 62px;
+    font-size: 28px;
+  }
+  
+  .logout-modal-header {
+    padding: 20px;
+  }
+  
+  .logout-modal-header h3 {
+    font-size: 1.4rem;
+  }
+  
+  .logout-instruction {
+    font-size: 1rem;
   }
 }

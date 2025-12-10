@@ -51,10 +51,14 @@ import { Pagamenti } from './pages/Pagamenti';
 import stripePromise from './stripe/config';
 import { Servizi } from './pages/Servizi/Servizi';
 import { Calendario } from './pages/Calendario/Calendario';
+import AuthWrapper from './components/AuthWrapper';
+
 
 function App() {
   return (
+ 
     <Elements stripe={stripePromise}>
+    <AuthWrapper>
       <Layout>
         <Routes>
           {/* Route per la root che mostra direttamente il calendario */}
@@ -65,8 +69,13 @@ function App() {
           <Route path="/servizi" element={<Servizi />} />
         </Routes>
       </Layout>
+     </AuthWrapper>
     </Elements>
+   
   );
 }
 
 export default App;
+
+
+

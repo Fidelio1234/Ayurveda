@@ -1,21 +1,38 @@
 /* ===== CONTAINER PRINCIPALE ===== */
+
+
+
+
 .calendario-page {
   padding: 0;
   min-height: 100vh;
   background: linear-gradient(135deg, #f2f2f5 0%, #764ba2 100%);
   width: 100%;
+ 
   margin: 0;
 }
 
+
+
+.calendario-grid {
+  
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* "1fr" può essere disuguale */
+}
+
+
+
 .calendario-container {
+
   background: white;
   border-radius: 0px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  min-height: 90vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   width: 100%;
+  
   margin: 0;
 }
 
@@ -25,6 +42,8 @@
   color: white;
   padding: 2rem;
   text-align: center;
+  
+  
 }
 
 .calendario-title {
@@ -38,6 +57,7 @@
   font-size: 1.1rem;
   opacity: 0.9;
   margin: 0;
+  
 }
 
 /* ===== CONTROLLI ===== */
@@ -162,8 +182,8 @@
 }
 
 .calendario-giorni .giorno-calendario:hover {
-  background: #f8fafc;
-  transform: scale(1.02);
+  background: #f0ebf0;
+  transform: scale(1.03);
   z-index: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -313,7 +333,7 @@
 }
 
 .conferma-btn-secondary {
-  background-color: #6b7280;
+  background-color: #6b806c;
   color: white;
 }
 
@@ -367,3 +387,5 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+

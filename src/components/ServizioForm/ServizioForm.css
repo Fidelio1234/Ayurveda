@@ -109,8 +109,8 @@ textarea.form-control {
   transform: none !important;
 }
 
-.btn-outline {
-  background: transparent;
+.btn.btn-outline{
+  background: rgb(227, 96, 96);
   border: 1px solid var(--gray-300);
   color: var(--gray-700);
 }

@@ -408,6 +408,7 @@ export function PrenotazioneForm({
   onCancel,
   onDelete,
   onEvadi 
+  
 }) {
   console.log('🔍 DEBUG - Giorno ricevuto:', giorno);
   console.log('🔍 DEBUG - Tipo giorno:', typeof giorno);
@@ -853,6 +854,7 @@ const verificaDisponibilita = () => {
                 <button type="button" onClick={onCancel} className="btn btn-secondary">
                   Annulla
                 </button>
+                
                 <button type="submit" className="btn btn-primary">
                   Crea Prenotazione
                 </button>

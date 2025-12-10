@@ -22,6 +22,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
+  
 }
 
 .form-label {
@@ -59,7 +60,7 @@
 }
 
 .fasce-occupate {
-  background: #fffbeb;
+  background: #e4f35b;
   border: 1px solid #fed7aa;
   border-radius: 8px;
   padding: 1rem;
@@ -130,12 +131,15 @@
 
 .form-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid #e5e7eb;
+    width: 100%;
 }
+
+
 
 .btn {
   display: inline-flex;
@@ -213,6 +217,7 @@
 }
 
 .form-actions-right {
+  
   display: flex;
   gap: 12px;
 }
@@ -228,17 +233,20 @@
 }
 
 .btn-primary {
-  background-color: #4f46e5;
+  background-color: #10cfe0;
   color: white;
 }
+
+
 
 .btn-primary:hover {
   background-color: #4338ca;
 }
 
 .btn-secondary {
-  background-color: #144fc6;
+  background-color: #c61414;
   color: white;
+
 }
 
 .btn-secondary:hover {
@@ -316,7 +324,7 @@
 }
 
 .conferma-btn-secondary {
-  background-color: #6b7280;
+  background-color: #806b6c;
   color: white;
 }
 

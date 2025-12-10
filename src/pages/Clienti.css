@@ -682,3 +682,97 @@
   background: #4b5563;
   transform: translateY(-1px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stili per le prenotazioni eliminate */
+.prenotazione-storico.eliminata {
+  background-color: #fff5f5;
+  border-left: 4px solid #ff6b6b;
+  opacity: 0.9;
+  position: relative;
+}
+
+.prenotazione-storico.eliminata .badge-eliminata {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.prenotazione-storico.eliminata .prenotazione-giorno,
+.prenotazione-storico.eliminata .prenotazione-ora,
+.prenotazione-storico.eliminata .prenotazione-servizio,
+.prenotazione-storico.eliminata .prenotazione-prezzo {
+  color: #666;
+}
+
+.prenotazione-storico.eliminata .prenotazione-giorno {
+  text-decoration: line-through;
+}
+
+.prenotazione-info-eliminazione {
+  background-color: #ffeaea;
+  border: 1px solid #ffcccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.prenotazione-info-eliminazione .motivo-eliminazione {
+  margin-bottom: 5px;
+  color: #c33;
+}
+
+.prenotazione-info-eliminazione .data-eliminazione {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.storico-statistiche {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #f8f9ff;
+  border-radius: 10px;
+}
+
+.statistica {
+  text-align: center;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.statistica-valore {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.statistica-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 5px;
+}
